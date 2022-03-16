@@ -6,7 +6,7 @@ variable "vpc_id" {}
 variable "private_subnet_id {}
 
 module "eks" {
-  source = "github.com/faelvinicius/terraform-eks-module"
+  source = "github.com/opsteamhub/module-aws-eks-ec2"
   
   name              = var.name
   region            = var.region
