@@ -9,7 +9,10 @@ resource "aws_eks_node_group" "eks_node_group" {
     version = aws_launch_template.node.latest_version
   }
 
-  subnet_ids = var.private_subnet_id
+  subnet_ids = [
+    aws_subnet.eks_subnet_private_1a.id, 
+    aws_subnet.eks_subnet_private_1b.id
+  ]
 
   scaling_config {
     desired_size = var.desired_size

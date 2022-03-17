@@ -7,20 +7,19 @@ variable "kubernetes_version" {
 }
 
 variable "desired_size" {
-    default = 2
+    default = 1
 }
 
 variable "max_size" {
-    default = 4
-}
-
-variable "min_size" {
     default = 2
 }
 
+variable "min_size" {
+    default = 1
+}
 
 variable "instance_types" {
-    default = "t3.medium" 
+    default = "t3.small" 
 }
 
 variable "environment" {}
@@ -37,8 +36,3 @@ variable "ebs_optimized" {
   default     = false
 }
 
-variable "private_subnet_id" {
-    default = []
-}
-
-variable "vpc_id" {}
