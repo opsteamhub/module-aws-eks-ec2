@@ -7,7 +7,7 @@ variable "kubernetes_version" {
 }
 
 variable "desired_size" {
-    default = 2
+    default = 1
 }
 
 variable "max_size" {
@@ -15,11 +15,11 @@ variable "max_size" {
 }
 
 variable "min_size" {
-    default = 2
+    default = 1
 }
 
 variable "instance_types" {
-    default = "t3.medium" 
+    default = "t3.small" 
 }
 
 variable "environment" {}
