@@ -7,8 +7,8 @@ resource "aws_eks_cluster" "eks_cluster" {
   enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
 
   encryption_config {
-  cluster_encryption_config_enabled    = var.cluster_encryption_config_enabled
-  cluster_encryption_config_kms_key_id = aws_kms_key.eks.key_id
+  resources    = "secrets"
+  key_arn      = aws_kms_key.eks.key_arn
   }
 
   vpc_config {
