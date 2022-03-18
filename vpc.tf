@@ -1,5 +1,5 @@
 resource "aws_vpc" "eks_vpc" {
-  cidr_block            = "10.10.20.0/24"
+  cidr_block            = "10.10.20.0/22"
 
   enable_dns_hostnames  = true
   enable_dns_support    = true
