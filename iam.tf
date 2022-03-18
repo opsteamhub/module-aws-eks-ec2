@@ -69,7 +69,7 @@ resource "aws_iam_role_policy_attachment" "eks_AmazonS3ReadOnlyAccess" {
 
 #####INGRESS CONTROLLER#######
 resource "aws_iam_policy" "ALBIngressControllerIAMPolicy" {
-  name   = "ALBIngressControllerIAMPolicy"
+  name   = join("-", ["policy-IngressController", local.name])
   policy = <<POLICY
 {
   "Version": "2012-10-17",
@@ -210,7 +210,7 @@ resource "aws_iam_role" "eks_alb_ingress_controller" {
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
         "StringEquals": {
-          "${replace(data.aws_eks_cluster.cluster_eks.identity[0].oidc[0].issuer, "https://", "")}:sub": "system:serviceaccount:kube-system:alb-ingress-controller"
+          "${replace(data.aws_eks_cluster.cluster.identity[0].oidc[0].issuer, "https://", "")}:sub": "system:serviceaccount:kube-system:alb-ingress-controller"
         }
       }
     }
@@ -221,5 +221,15 @@ ROLE
 
 resource "aws_iam_role_policy_attachment" "ALBIngressControllerIAMPolicy" {
   policy_arn = aws_iam_policy.ALBIngressControllerIAMPolicy.arn
+  role       = aws_iam_role.eks_alb_ingress_controller.name
+}
+
+resource "aws_iam_role_policy_attachment" "ingress_AmazonEKSWorkerNodePolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+  role       = aws_iam_role.eks_alb_ingress_controller.name
+}
+
+resource "aws_iam_role_policy_attachment" "ingress_AmazonEKS_CNI_Policy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
   role       = aws_iam_role.eks_alb_ingress_controller.name
 }

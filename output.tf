@@ -23,9 +23,9 @@ output "launch_template_version" {
 }
 
 output "identity-oidc-issuer" {
-  value = data.aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer
+  value = data.aws_eks_cluster.cluster.identity[0].oidc[0].issuer
 }
 
 output "kubeconfig-certificate-authority-data" {
-  value = data.aws_eks_cluster.cluster_eks.certificate_authority[0].data
+  value = data.aws_eks_cluster.cluster.certificate_authority[0].data
 }
