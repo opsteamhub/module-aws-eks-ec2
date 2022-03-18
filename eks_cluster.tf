@@ -6,12 +6,6 @@ resource "aws_eks_cluster" "eks_cluster" {
   
   enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
 
-  encryption_config {
-  provider     = "kms"
-  resources    = "secrets"
-  key_arn      = aws_kms_key.eks.key_arn
-  }
-
   vpc_config {
 
       subnet_ids = [

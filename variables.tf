@@ -36,8 +36,3 @@ variable "ebs_optimized" {
   default     = false
 }
 
-variable "cluster_encryption_config_enabled" {
-    type = bool
-    default = true
-  
-}
