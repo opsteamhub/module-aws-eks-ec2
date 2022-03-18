@@ -10,7 +10,6 @@ resource "aws_subnet" "eks_subnet_public_1a" {
   tags = {
     Name = format("%s-subnet-public-1a", local.name)
     "kubernetes.io/cluster/${local.name}" = "shared"
-    "kubernetes.io/role/elb" = 1
   }
 
 }
@@ -24,7 +23,6 @@ resource "aws_subnet" "eks_subnet_public_1b" {
   tags = {
     Name = format("%s-subnet-public-1b", local.name)
     "kubernetes.io/cluster/${local.name}" = "shared"
-    "kubernetes.io/role/elb" = 1
   }
 
 }

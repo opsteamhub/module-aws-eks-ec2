@@ -2,7 +2,7 @@
 
 resource "aws_iam_role" "eks_master_role" {
 
-  name = format("%s-master-role", local.name)
+  name = join("-", ["role-cluster", local.name])
   
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -31,7 +31,7 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_service" {
 
 
 resource "aws_iam_role" "eks_node_role" {
-  name = format("%s-node-role", local.name)
+  name = join("-", ["role-node", local.name])
 
   assume_role_policy = jsonencode({
     Statement = [{
