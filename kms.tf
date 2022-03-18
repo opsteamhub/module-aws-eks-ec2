@@ -6,9 +6,6 @@
 
   tags = {
     Name          = join("-", ["kms", local.name])
-    ProvisionedBy = local.provisioner
-    Squad         = local.squad
-    Service       = local.service
   }
 }
 
