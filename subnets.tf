@@ -3,7 +3,7 @@
 resource "aws_subnet" "eks_subnet_public_1a" {
 
   vpc_id                  = aws_vpc.eks_vpc.id
-  cidr_block              = "10.10.20.0/24"
+  cidr_block              = "10.10.16.0/24"
   availability_zone       = format("%sa", var.region)
   map_public_ip_on_launch = true
 
@@ -17,7 +17,7 @@ resource "aws_subnet" "eks_subnet_public_1a" {
 
 resource "aws_subnet" "eks_subnet_public_1b" {
   vpc_id                  = aws_vpc.eks_vpc.id
-  cidr_block              = "10.10.21.0/24"
+  cidr_block              = "10.10.17.0/24"
   availability_zone       = format("%sb", var.region)
   map_public_ip_on_launch = true
 
@@ -31,7 +31,7 @@ resource "aws_subnet" "eks_subnet_public_1b" {
 
 resource "aws_subnet" "eks_subnet_public_1c" {
   vpc_id                  = aws_vpc.eks_vpc.id
-  cidr_block              = "10.10.22.0/24"
+  cidr_block              = "10.10.18.0/24"
   availability_zone       = format("%sc", var.region)
   map_public_ip_on_launch = true
 
@@ -66,7 +66,7 @@ resource "aws_route_table_association" "eks_public_rt_association_1c" {
 resource "aws_subnet" "eks_subnet_private_1a" {
 
   vpc_id            = aws_vpc.eks_vpc.id
-  cidr_block        = "10.10.23.0/24"
+  cidr_block        = "10.10.19.0/24"
   availability_zone = format("%sa", var.region)
 
   tags = {
@@ -79,7 +79,7 @@ resource "aws_subnet" "eks_subnet_private_1a" {
 resource "aws_subnet" "eks_subnet_private_1b" {
 
   vpc_id            = aws_vpc.eks_vpc.id
-  cidr_block        = "10.10.24.0/24"
+  cidr_block        = "10.10.20.0/24"
   availability_zone = format("%sb", var.region)
 
   tags = {
@@ -92,7 +92,7 @@ resource "aws_subnet" "eks_subnet_private_1b" {
 resource "aws_subnet" "eks_subnet_private_1c" {
 
   vpc_id            = aws_vpc.eks_vpc.id
-  cidr_block        = "10.10.25.0/24"
+  cidr_block        = "10.10.21.0/24"
   availability_zone = format("%sc", var.region)
 
   tags = {
