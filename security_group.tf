@@ -29,6 +29,14 @@ resource "aws_security_group" "node_group_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }  
 
+  ingress {
+  description = "Get Logs"
+  from_port   = 10250
+  to_port     = 10250
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+}
+
   egress {
     from_port   = 0
     to_port     = 65535
