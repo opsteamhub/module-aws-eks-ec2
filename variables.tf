@@ -7,20 +7,16 @@ variable "kubernetes_version" {
 }
 
 variable "desired_size" {
-    default = 1
-}
-
-variable "max_size" {
     default = 2
 }
 
-variable "min_size" {
-    default = 1
+variable "max_size" {
+    default = 4
 }
 
-#variable "disk_size" {
-#    default = 10
-#}
+variable "min_size" {
+    default = 2
+}
 
 variable "instance_types" {
     default = "t3.small" 
@@ -40,3 +36,8 @@ variable "ebs_optimized" {
   default     = false
 }
 
+variable "cluster_encryption_config_enabled" {
+    type = bool
+    default = true
+  
+}
