@@ -39,3 +39,7 @@ variable "ebs_optimized" {
 variable "endpoint_private_access " {
     default = true  
 }
+
+variable "endpoint_public_access" {
+    default = false
+}
