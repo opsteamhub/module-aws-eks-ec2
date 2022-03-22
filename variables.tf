@@ -41,5 +41,10 @@ variable "endpoint_private_access" {
 }
 
 variable "endpoint_public_access" {
-    default = false
+    default = true
+}
+
+variable "public_access_cidrs " {
+    default = ["10.10.16.0/21"]
+  
 }

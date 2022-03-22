@@ -9,10 +9,15 @@ resource "aws_eks_cluster" "eks_cluster" {
   vpc_config {
     endpoint_private_access = var.endpoint_private_access 
     endpoint_public_access  = var.endpoint_public_access
+    public_access_cidrs     = var.public_access_cidrs 
+
     subnet_ids = [
       aws_subnet.eks_subnet_private_1a.id, 
       aws_subnet.eks_subnet_private_1b.id,
-      aws_subnet.eks_subnet_private_1c.id
+      aws_subnet.eks_subnet_private_1c.id,
+      aws_subnet.eks_subnet_public_1a.id, 
+      aws_subnet.eks_subnet_public_1b.id,
+      aws_subnet.eks_subnet_public_1c.id
     ]
       
   }
