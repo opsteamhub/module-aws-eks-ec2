@@ -6,7 +6,9 @@ resource "kubernetes_cluster_role" "ingress" {
       "app.kubernetes.io/managed-by" = "terraform"
     }
   }
-
+depends_on = [
+   aws_eks_cluster.eks_cluster
+]
   rule {
     api_groups = ["", "extensions"]
     resources  = ["configmaps", "endpoints", "events", "ingresses", "ingresses/status", "services"]
