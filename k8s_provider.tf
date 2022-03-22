@@ -1,10 +1,9 @@
-module "eks" {
-
-  providers = {
-    aws = aws.teste
-    kubernetes = kubernetes.teste
+required_providers {
+  kubernetes = {
+    source  = "registry.terraform.io/hashicorp/kubernetes"
+    version = "~> 1.0"
   }
-}  
+}
 
 provider "kubernetes" {
   host                   = data.aws_eks_cluster.cluster.endpoint
@@ -12,7 +11,6 @@ provider "kubernetes" {
   token                  = data.aws_eks_cluster_auth.cluster.token
   load_config_file       = false
   version                = ">=1.11.0"
-  alias                  = "teste"
 }
 
 
