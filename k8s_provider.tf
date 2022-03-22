@@ -27,3 +27,5 @@ resource "local_file" "kubeconfig" {
   content  = data.template_file.kubeconfig.rendered
   filename = pathexpand("~/.kube/config")
 }
+
+##
