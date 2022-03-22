@@ -19,8 +19,6 @@ resource "kubernetes_cluster_role" "ingress" {
     verbs      = ["get", "list", "watch"]
   }
 
-  depends_on = [local_file.kubeconfig ]
-
 }
 
 resource "kubernetes_cluster_role_binding" "ingress" {
