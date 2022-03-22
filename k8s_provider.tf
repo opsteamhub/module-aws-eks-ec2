@@ -1,5 +1,5 @@
 provider "kubernetes" {
-  host                   = data.aws_eks_cluster.eks_cluster.endpoint
+  host                   = aws_eks_cluster.eks_cluster.cluster_endpoint
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority[0].data)
   token                  = data.aws_eks_cluster_auth.cluster.token
 }
@@ -7,6 +7,10 @@ provider "kubernetes" {
 
 data "aws_eks_cluster" "cluster" {
   name = aws_eks_cluster.eks_cluster.id
+}
+
+data "aws_eks_cluster" "endpoint" {
+  name = aws_eks_cluster.eks_cluster.endpoint
 }
 
 data "aws_eks_cluster_auth" "cluster" {
