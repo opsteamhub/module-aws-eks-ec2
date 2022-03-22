@@ -92,5 +92,7 @@ resource "kubernetes_deployment" "ingress" {
     }
   }
 
-  depends_on = [kubernetes_cluster_role_binding.ingress]
+  depends_on = [kubernetes_cluster_role_binding.ingress,
+                aws_eks_node_group.eks_node_group
+               ]
 }
