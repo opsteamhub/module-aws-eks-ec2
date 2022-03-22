@@ -11,12 +11,9 @@ output "private_subnet_1b" {
 }
 
 output "cluster_name" {
-  value = aws_eks_cluster.eks_cluster.id
+  value = aws_eks_cluster.eks_cluster[0].id
 }
 
-output "cluster_endpoint" {
-  value = aws_eks_cluster.eks_cluster.endpoint
-}
 
 output "launch_template_name" {
     value = aws_launch_template.node.name
