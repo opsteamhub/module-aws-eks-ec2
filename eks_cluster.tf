@@ -7,8 +7,6 @@ resource "aws_eks_cluster" "eks_cluster" {
   #enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
 
   vpc_config {
-    endpoint_private_access = var.endpoint_private_access 
-    endpoint_public_access  = var.endpoint_public_access
 
     subnet_ids = [
       aws_subnet.eks_subnet_private_1a.id, 

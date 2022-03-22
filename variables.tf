@@ -35,12 +35,3 @@ variable "ebs_optimized" {
   type        = bool
   default     = false
 }
-
-variable "endpoint_private_access" {
-    default = false
-}
-
-variable "endpoint_public_access" {
-    default = true
-}
-
