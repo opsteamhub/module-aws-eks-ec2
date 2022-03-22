@@ -44,7 +44,3 @@ variable "endpoint_public_access" {
     default = true
 }
 
-variable "public_access_cidrs" {
-    type = list(string)
-    default = []  
-}
