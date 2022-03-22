@@ -9,7 +9,7 @@ data "aws_eks_cluster" "cluster" {
   name = aws_eks_cluster.eks_cluster.id
 }
 
-data "aws_eks_cluster" "cluster" {
+data "aws_eks_cluster" "cluster_endpoint" {
   name = aws_eks_cluster.eks_cluster.endpoint
 }
 
