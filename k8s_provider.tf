@@ -7,12 +7,12 @@ provider "kubernetes" {
 
 data "aws_eks_cluster" "cluster" {
   count = var.create_eks ? 1 : 0
-  name = aws_eks_cluster.eks_cluster.id
+  name = aws_eks_cluster.eks_cluster[0].id
 }
 
 data "aws_eks_cluster_auth" "cluster" {
   count = var.create_eks ? 1 : 0
-  name = aws_eks_cluster.eks_cluster.id
+  name = aws_eks_cluster.eks_cluster[0].id
 }
 
 data "template_file" "kubeconfig" {
