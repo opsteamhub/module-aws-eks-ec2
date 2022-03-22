@@ -1,5 +1,5 @@
 resource "aws_eks_cluster" "eks_cluster" {
-
+  count                   = var.create_eks ? 1 : 0
   name                    = local.name
   role_arn                = aws_iam_role.eks_master_role.arn
   version                 = var.kubernetes_version
