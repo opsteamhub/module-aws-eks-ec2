@@ -12,9 +12,6 @@ resource "aws_eks_cluster" "eks_cluster" {
     public_access_cidrs     = var.public_access_cidrs 
 
     subnet_ids = [
-      aws_subnet.eks_subnet_private_1a.id, 
-      aws_subnet.eks_subnet_private_1b.id,
-      aws_subnet.eks_subnet_private_1c.id,
       aws_subnet.eks_subnet_public_1a.id, 
       aws_subnet.eks_subnet_public_1b.id,
       aws_subnet.eks_subnet_public_1c.id
