@@ -44,7 +44,7 @@ variable "endpoint_public_access" {
     default = true
 }
 
-variable "public_access_cidrs " {
+variable "public_access_cidrs" {
     type = list(string)
     default = ["10.10.16.0/21"]
   
