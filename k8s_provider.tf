@@ -19,7 +19,7 @@ data "template_file" "kubeconfig" {
   template = file("${path.module}/templates/kubeconfig.tpl")
 
   vars = {
-    kubeconfig_name           = "eks_${aws_eks_cluster.eks_cluster[0].name}"
+    kubeconfig_name           = "eks_${aws_eks_cluster.eks_cluster[*].name}"
     clustername               = aws_eks_cluster.eks_cluster[0].name
     endpoint                  = aws_eks_cluster.eks_cluster[0].endpoint
     cluster_auth_base64       = data.aws_eks_cluster.cluster[0].certificate_authority[0].data
